@@ -199,7 +199,8 @@ namespace UnityEngine.Experimental.Rendering.Universal
                 }
                 else
 #endif
-                {
+                {					
+				/*
                     m_PostProcessPass.Setup(
                         cameraTargetDescriptor,
                         colorTargetHandle,
@@ -210,7 +211,8 @@ namespace UnityEngine.Experimental.Rendering.Universal
                         postProcessDestHandle == RenderTargetHandle.CameraTarget
                     );
 
-                    EnqueuePass(m_PostProcessPass);
+                    EnqueuePass(m_PostProcessPass);				
+*/					
                 }
                 
                 colorTargetHandle = postProcessDestHandle;
