@@ -32,37 +32,37 @@ namespace UnityEngine.Rendering.Universal
         [Serializable, ReloadGroup]
         public sealed class ShaderResources
         {
-            [Reload("Shaders/PostProcessing/StopNaN.shader")]
+            //[Reload("Shaders/PostProcessing/StopNaN.shader")]
             public Shader stopNanPS;
 
-            [Reload("Shaders/PostProcessing/SubpixelMorphologicalAntialiasing.shader")]
+            //[Reload("Shaders/PostProcessing/SubpixelMorphologicalAntialiasing.shader")]
             public Shader subpixelMorphologicalAntialiasingPS;
 
-            [Reload("Shaders/PostProcessing/GaussianDepthOfField.shader")]
+            //[Reload("Shaders/PostProcessing/GaussianDepthOfField.shader")]
             public Shader gaussianDepthOfFieldPS;
 
-            [Reload("Shaders/PostProcessing/BokehDepthOfField.shader")]
+            //[Reload("Shaders/PostProcessing/BokehDepthOfField.shader")]
             public Shader bokehDepthOfFieldPS;
 
-            [Reload("Shaders/PostProcessing/CameraMotionBlur.shader")]
+            //[Reload("Shaders/PostProcessing/CameraMotionBlur.shader")]
             public Shader cameraMotionBlurPS;
 
-            [Reload("Shaders/PostProcessing/PaniniProjection.shader")]
+            //[Reload("Shaders/PostProcessing/PaniniProjection.shader")]
             public Shader paniniProjectionPS;
 
-            [Reload("Shaders/PostProcessing/LutBuilderLdr.shader")]
+            //[Reload("Shaders/PostProcessing/LutBuilderLdr.shader")]
             public Shader lutBuilderLdrPS;
 
-            [Reload("Shaders/PostProcessing/LutBuilderHdr.shader")]
+            //[Reload("Shaders/PostProcessing/LutBuilderHdr.shader")]
             public Shader lutBuilderHdrPS;
 
-            [Reload("Shaders/PostProcessing/Bloom.shader")]
+            //[Reload("Shaders/PostProcessing/Bloom.shader")]
             public Shader bloomPS;
 
-            [Reload("Shaders/PostProcessing/UberPost.shader")]
+            //[Reload("Shaders/PostProcessing/UberPost.shader")]
             public Shader uberPostPS;
 
-            [Reload("Shaders/PostProcessing/FinalPost.shader")]
+            //[Reload("Shaders/PostProcessing/FinalPost.shader")]
             public Shader finalPostPassPS;
         }
 
@@ -70,11 +70,11 @@ namespace UnityEngine.Rendering.Universal
         public sealed class TextureResources
         {
             // Pre-baked noise
-            [Reload("Textures/BlueNoise16/L/LDR_LLL1_{0}.png", 0, 32)]
+            //[Reload("Textures/BlueNoise16/L/LDR_LLL1_{0}.png", 0, 32)]
             public Texture2D[] blueNoise16LTex;
 
             // Post-processing
-            [Reload(new[]
+            //[Reload(new[]
             {
                 "Textures/FilmGrain/Thin01.png",
                 "Textures/FilmGrain/Thin02.png",
@@ -89,10 +89,10 @@ namespace UnityEngine.Rendering.Universal
             })]
             public Texture2D[] filmGrainTex;
 
-            [Reload("Textures/SMAA/AreaTex.tga")]
+            //[Reload("Textures/SMAA/AreaTex.tga")]
             public Texture2D smaaAreaTex;
 
-            [Reload("Textures/SMAA/SearchTex.tga")]
+            //[Reload("Textures/SMAA/SearchTex.tga")]
             public Texture2D smaaSearchTex;
         }
 
