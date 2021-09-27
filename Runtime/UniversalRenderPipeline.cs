@@ -894,7 +894,7 @@ namespace UnityEngine.Rendering.Universal
             {
                 cameraData.renderType = CameraRenderType.Base;
                 cameraData.clearDepth = true;
-                cameraData.postProcessEnabled = CoreUtils.ArePostProcessesEnabled(camera);
+                cameraData.postProcessEnabled = false;// CoreUtils.ArePostProcessesEnabled(camera);
                 cameraData.requiresDepthTexture = settings.supportsCameraDepthTexture;
                 cameraData.requiresOpaqueTexture = settings.supportsCameraOpaqueTexture;
                 cameraData.renderer = asset.scriptableRenderer;
