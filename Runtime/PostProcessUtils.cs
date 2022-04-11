@@ -16,17 +16,17 @@ namespace UnityEngine.Rendering.Universal
             if (blueNoise == null || blueNoise.Length == 0)
                 return 0; // Safe guard
 
-            #if LWRP_DEBUG_STATIC_POSTFX // Used by QA for automated testing
+#if LWRP_DEBUG_STATIC_POSTFX // Used by QA for automated testing
             index = 0;
             float rndOffsetX = 0f;
             float rndOffsetY = 0f;
-            #else
+#else
             if (++index >= blueNoise.Length)
                 index = 0;
 
             float rndOffsetX = Random.value;
             float rndOffsetY = Random.value;
-            #endif
+#endif
 
             // Ideally we would be sending a texture array once and an index to the slice to use
             // on every frame but these aren't supported on all Universal targets
@@ -57,13 +57,13 @@ namespace UnityEngine.Rendering.Universal
             if (settings.type.value != FilmGrainLookup.Custom)
                 texture = data.textures.filmGrainTex[(int)settings.type.value];
 
-            #if LWRP_DEBUG_STATIC_POSTFX
+#if LWRP_DEBUG_STATIC_POSTFX
             float offsetX = 0f;
             float offsetY = 0f;
-            #else
+#else
             float offsetX = Random.value;
             float offsetY = Random.value;
-            #endif
+#endif
 
             var tilingParams = texture == null
                 ? Vector4.zero
@@ -74,6 +74,18 @@ namespace UnityEngine.Rendering.Universal
             material.SetVector(ShaderConstants._Grain_TilingParams, tilingParams);
         }
 
+        internal static void SetSourceSize(CommandBuffer cmd, RenderTextureDescriptor desc)
+        {
+            float width = desc.width;
+            float height = desc.height;
+            if (desc.useDynamicScale)
+            {
+                width *= ScalableBufferManager.widthScaleFactor;
+                height *= ScalableBufferManager.heightScaleFactor;
+            }
+            cmd.SetGlobalVector(ShaderConstants._SourceSize, new Vector4(width, height, 1.0f / width, 1.0f / height));
+        }
+
         // Precomputed shader ids to same some CPU cycles (mostly affects mobile)
         static class ShaderConstants
         {
@@ -82,7 +94,9 @@ namespace UnityEngine.Rendering.Universal
             public static readonly int _Grain_TilingParams = Shader.PropertyToID("_Grain_TilingParams");
 
             public static readonly int _BlueNoise_Texture = Shader.PropertyToID("_BlueNoise_Texture");
-            public static readonly int _Dithering_Params  = Shader.PropertyToID("_Dithering_Params");
+            public static readonly int _Dithering_Params = Shader.PropertyToID("_Dithering_Params");
+
+            public static readonly int _SourceSize = Shader.PropertyToID("_SourceSize");
         }
     }
 }
