@@ -346,9 +346,9 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
             base.CollectShaderProperties(collector, generationMode);
             activeSubTarget.CollectShaderProperties(collector, generationMode);
 
-            collector.AddShaderProperty(LightmappingShaderProperties.kLightmapsArray);
-            collector.AddShaderProperty(LightmappingShaderProperties.kLightmapsIndirectionArray);
-            collector.AddShaderProperty(LightmappingShaderProperties.kShadowMasksArray);
+            //collector.AddShaderProperty(LightmappingShaderProperties.kLightmapsArray);
+            //collector.AddShaderProperty(LightmappingShaderProperties.kLightmapsIndirectionArray);
+            //collector.AddShaderProperty(LightmappingShaderProperties.kShadowMasksArray);
 
 
             // SubTarget blocks
